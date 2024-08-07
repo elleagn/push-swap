@@ -1,0 +1,9 @@
+Usually efficiency is mesured in number of comparison, here it is in number of
+operations !!
+!! Sorting algorithm often use different structures than stacks
+Stacks do not always have the same operations allowed.
+Keywords :
+Insertion sort
+Bubble sort
+Pancake sort
+
