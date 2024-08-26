@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:33:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/05/27 08:39:38 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/13 14:19:31 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,12 @@ size_t	ft_wordlen(char const *s, char c)
 	return (i);
 }
 
+// Allocates (with malloc(3)) and returns an array of strings obtained by
+// splitting ’s’ using the character ’c’ as a delimiter. The array must end with
+// a NULL pointer.
+// Return value :
+// 	The array of new strings resulting from the split.
+// 	NULL if the allocation fails.
 char	**ft_split(char const *s, char c)
 {
 	char			**res;

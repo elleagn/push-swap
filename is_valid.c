@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:13:37 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/13 08:29:14 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/13 09:58:27 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,21 @@ int	is_sign(char *str, int i)
 	return (1);
 }
 
+// Returns 0 if a string contains characters others than spaces, 1 otherwise.
+int	is_spaces(char *str)
+{
+	int	i;
+
+	i = 0;
+	if (!str)
+		return (1);
+	while (str[i] && str[i] == ' ')
+		i++;
+	if (str[i])
+		return (1);
+	return (0);
+}
+
 // Checks if a string is representing a sequence of integers separated by
 // spaces.
 // Returns 1 if the string satisfies this definition and 0 otherwise.
@@ -35,6 +50,8 @@ int	is_valid(char *str)
 	int	i;
 
 	i = 0;
+	if (is_spaces(str))
+		return (1);
 	while (str[i] == ' ' || ft_isdigit(str[i]) || is_sign(str, i))
 		i++;
 	if (str[i])

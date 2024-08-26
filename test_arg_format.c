@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   test_arg_format.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/26 09:51:40 by gozon            ###   ########.fr       */
+/*   Created: 2024/08/26 09:45:59 by gozon             #+#    #+#             */
+/*   Updated: 2024/08/26 09:50:30 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include <unistd.h>
-# include <stdlib.h>
-# include "Libft/libft.h"
+int	main(int ac, char **av)
+{
+	int	i;
 
-char	**args_to_array(char **argv);
-int		is_valid(char *str);
-
-#endif
+	i = 1;
+	if (ac > 1)
+	{
+		while (av[i])
+		{
+			ft_putstr_fd(av[i], 1);
+			ft_putchar_fd('\n', 1);
+			i++;
+		}
+	}
+	return (0);
+}
