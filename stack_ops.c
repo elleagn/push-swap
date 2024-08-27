@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_op.c                                          :+:      :+:    :+:   */
+/*   stack_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 13:39:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/26 13:59:40 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/27 08:19:42 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,39 @@ t_stack	*new(int number)
 	new->previous = new;
 }
 
-// Adds an element to the stack.
-t_stack	*stack_add(t_stack *stack, t_stack *element)
+// Pushes an element to the stack.
+void	stack_push(t_stack **stack, t_stack *element)
 {
 	t_stack	*last;
 
-	last = stack->previous;
-	last->next = element;
-	element->previous = last;
-	element->next = stack;
-	stack->previous = element;
+	if (*stack)
+	{
+		last = (*stack)->previous;
+		last->next = element;
+		element->previous = last;
+		element->next = stack;
+		(*stack)->previous = element;
+	}
+	(*stack) = element;
+}
+
+// Pops an element from the stack, and returnsit.
+t_stack	*stack_pop(t_stack	**stack)
+{
+	t_stack	*element;
+
+	if (*stack == NULL)
+		return (NULL);
+	element = *stack;
+	if (element->next == element)
+	{
+		*stack = NULL;
+		return (element);
+	}
+	(*stack)->previous->next = element->next;
+	(*stack)->next->previous = element->previous;
+	element->next = element;
+	element->previous = element;
 	return (element);
 }
 
@@ -43,6 +66,8 @@ void	stack_clear(t_stack **stack)
 {
 	t_stack	*element;
 
+	if (*stack == NULL)
+		return ;
 	element = (*stack)->next;
 	while (element != *stack)
 	{
