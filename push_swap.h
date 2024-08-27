@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/26 13:38:25 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/27 08:33:40 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,16 @@ typedef struct s_push_swap
 	int		size;
 }	t_push_swap;
 
+// Argument verification
+
 char	**args_to_array(char **argv);
 int		is_valid(char *str);
+
+// Stack operations
+
+void	stack_clear(t_stack **stack);
+t_stack	*stack_pop(t_stack	**stack);
+void	stack_push(t_stack **stack, t_stack *element);
+t_stack	*new(int number);
 
 #endif
