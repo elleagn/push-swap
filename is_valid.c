@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:13:37 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 08:05:35 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 12:12:08 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	is_spaces(char *str)
 	while (str[i] && str[i] == ' ')
 		i++;
 	if (str[i])
-		return (1);
-	return (0);
+		return (0);
+	return (1);
 }
 
 // Checks if a string is representing a sequence of integers separated by
@@ -64,7 +64,7 @@ int	is_valid(char *str)
 
 	i = 0;
 	if (is_spaces(str))
-		return (1);
+		return (0);
 	while (str[i] == ' ' || ft_isdigit(str[i]) || is_sign(str, i))
 		i++;
 	if (str[i])

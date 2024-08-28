@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/27 11:00:30 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 12:19:51 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_push_swap
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	int		*sorted;
-	int		bounds[3];
 	int		size;
 }	t_push_swap;
 
@@ -45,15 +43,12 @@ void		stack_clear(t_stack **stack);
 t_stack		*stack_pop(t_stack	**stack);
 void		stack_push(t_stack **stack, t_stack *element);
 t_stack		*new(int number);
+int			is_in_stack(int number, t_stack *stack);
 
 // Init and cleanup functions
 
 void		cleanup(t_push_swap *push_swap);
 t_push_swap	*init(void);
 int			fill_stack_a(t_push_swap *push_swap, char **splitted);
-
-// Array sorting
-
-void		quick_sort(int *array, int size);
 
 #endif

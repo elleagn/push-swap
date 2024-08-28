@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 08:45:23 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 08:09:56 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 12:20:01 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ int	main(int argc, char **argv)
 	free_array(splitted);
 	if (error)
 		return (cleanup(push_swap), ft_putstr_fd("Error\n", 2), 1);
-	print_array(push_swap->sorted, push_swap->size);
 	print_stack(push_swap->stack_a);
 	cleanup(push_swap);
 	return (0);

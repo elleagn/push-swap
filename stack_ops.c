@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 13:39:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 08:05:59 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 11:53:56 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,23 @@ void	stack_clear(t_stack **stack)
 	}
 	free(element);
 	*stack = NULL;
+}
+
+// Checks if a number is in the pile.
+int	is_in_stack(int number, t_stack *stack)
+{
+	t_stack	*element;
+
+	if (!stack)
+		return (0);
+	if (stack->number == number)
+		return (1);
+	element = stack->next;
+	while (element != stack)
+	{
+		if (stack->number == number)
+			return (1);
+		element = element->next;
+	}
+	return (0);
 }
