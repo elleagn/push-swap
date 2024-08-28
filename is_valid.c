@@ -6,11 +6,24 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 12:13:37 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/13 09:58:27 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 08:05:35 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// Checks if a string represents zero
+int	is_zero(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] && str[i] == '0')
+		i++;
+	if (str[i])
+		return (0);
+	return (1);
+}
 
 // Function used to check if a chracter is used as an integer sign.
 // Returns 1 if str[i] is a + or - character preceded by a space and followed by
@@ -19,7 +32,7 @@ int	is_sign(char *str, int i)
 {
 	if (!str[i] || (str[i] != '+' && str[i] != '-'))
 		return (0);
-	if (!i == 0 && !str[i - 1] == ' ')
+	if (i != 0 && str[i - 1] != ' ')
 		return (0);
 	if (!ft_isdigit(str[i + 1]))
 		return (0);

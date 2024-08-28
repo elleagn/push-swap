@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/27 08:33:40 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/27 11:00:30 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,31 @@ typedef struct s_push_swap
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		*sorted;
-	int		bounds[5];
+	int		bounds[3];
 	int		size;
 }	t_push_swap;
 
 // Argument verification
 
-char	**args_to_array(char **argv);
-int		is_valid(char *str);
+char		**args_to_array(char **argv);
+int			is_valid(char *str);
+int			is_zero(char *str);
 
 // Stack operations
 
-void	stack_clear(t_stack **stack);
-t_stack	*stack_pop(t_stack	**stack);
-void	stack_push(t_stack **stack, t_stack *element);
-t_stack	*new(int number);
+void		stack_clear(t_stack **stack);
+t_stack		*stack_pop(t_stack	**stack);
+void		stack_push(t_stack **stack, t_stack *element);
+t_stack		*new(int number);
+
+// Init and cleanup functions
+
+void		cleanup(t_push_swap *push_swap);
+t_push_swap	*init(void);
+int			fill_stack_a(t_push_swap *push_swap, char **splitted);
+
+// Array sorting
+
+void		quick_sort(int *array, int size);
 
 #endif

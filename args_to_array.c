@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 09:58:33 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/26 11:44:55 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 08:13:32 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ char	**args_to_array(char **argv)
 
 	str = strjoin_all(argv);
 	if (!str)
-		return (1);
+		return (NULL);
 	if (!is_valid(str))
-		return (free(str), 1);
+		return (free(str), NULL);
 	array = ft_split(str, ' ');
 	free(str);
 	return (array);

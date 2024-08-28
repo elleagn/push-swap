@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 13:39:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/27 08:19:42 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/28 08:05:59 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_stack	*new(int number)
 	new->number = number;
 	new->next = new;
 	new->previous = new;
+	return (new);
 }
 
 // Pushes an element to the stack.
@@ -35,7 +36,7 @@ void	stack_push(t_stack **stack, t_stack *element)
 		last = (*stack)->previous;
 		last->next = element;
 		element->previous = last;
-		element->next = stack;
+		element->next = *stack;
 		(*stack)->previous = element;
 	}
 	(*stack) = element;
