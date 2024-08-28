@@ -3,3 +3,4 @@ test_*
 Libft/*.o
 push_swap
 a.out
+Libft/libft.a
