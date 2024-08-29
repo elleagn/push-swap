@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 12:19:51 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/29 09:53:16 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "Libft/libft.h"
+
+typedef struct s_move
+{
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total;
+}	t_move;
 
 typedef struct s_stack
 {
@@ -29,6 +40,8 @@ typedef struct s_push_swap
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		size;
+	int		size_b;
+	t_move	*next_move;
 }	t_push_swap;
 
 // Argument verification
@@ -51,4 +64,13 @@ void		cleanup(t_push_swap *push_swap);
 t_push_swap	*init(void);
 int			fill_stack_a(t_push_swap *push_swap, char **splitted);
 
+// Basic maths
+
+int			ft_min(int n1, int n2);
+int			ft_abs(int n);
+
+// Cheapest move calculation
+
+void		cheapest_move_by_element(int pos_a, int pos_b,
+				t_push_swap *push_swap);
 #endif
