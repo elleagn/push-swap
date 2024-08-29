@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/08/28 09:33:02 by gozon            ###   ########.fr        #
+#    Updated: 2024/08/29 10:19:41 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
 SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c quick_sort.c \
-	stack_ops.c test_init.c
+	stack_ops.c maths.c test_cheapest_move_element.c
 OBJ = $(SRC:.c=.o)
 
 # Séquences d'échappement ANSI pour les couleurs

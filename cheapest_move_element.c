@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_next_move.c                                 :+:      :+:    :+:   */
+/*   cheapest_move_element.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 11:38:06 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 09:51:23 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/29 10:28:53 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,8 @@ void	update_r_rr(int pos_a, int pos_b, t_push_swap *push_swap)
 	}
 	else
 	{
-		push_swap->next_move->ra = pos_b;
-		push_swap->next_move->rra = 0;
+		push_swap->next_move->rb = pos_b;
+		push_swap->next_move->rrb = 0;
 	}
 	push_swap->next_move->rr = 0;
 	push_swap->next_move->rrr = 0;
@@ -113,7 +113,7 @@ void	cheapest_move_by_element(int pos_a, int pos_b, t_push_swap *push_swap)
 	}
 	if (total > ft_min(pos_a, size_a - pos_a) + ft_min(pos_b, size_b - pos_b))
 	{
-		total = ft_min(pos_a, size_a - pos_a) + min(pos_b, size_b - pos_b);
+		total = ft_min(pos_a, size_a - pos_a) + ft_min(pos_b, size_b - pos_b);
 		update_r_rr(pos_a, pos_b, push_swap);
 	}
 }
