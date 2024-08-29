@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 09:07:40 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 08:37:33 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/29 14:46:57 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_push_swap	*init(void)
 	if (!push_swap)
 		return (NULL);
 	push_swap->size = -1;
+	push_swap->size_b = 0;
 	push_swap->stack_a = NULL;
 	push_swap->stack_b = NULL;
 	push_swap->next_move = malloc(sizeof(t_move));

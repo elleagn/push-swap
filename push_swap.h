@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 09:53:16 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/29 14:36:07 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,18 @@ void		stack_push(t_stack **stack, t_stack *element);
 t_stack		*new(int number);
 int			is_in_stack(int number, t_stack *stack);
 
+// Push_swap moves
+
+void		do_pa(t_push_swap *push_swap);
+void		do_pb(t_push_swap *push_swap);
+void		do_ra(t_push_swap *push_swap);
+void		do_rb(t_push_swap *push_swap);
+void		do_rr(t_push_swap *push_swap);
+void		do_rra(t_push_swap *push_swap);
+void		do_rrb(t_push_swap *push_swap);
+void		do_rrr(t_push_swap *push_swap);
+void		do_move(t_push_swap *push_swap);
+
 // Init and cleanup functions
 
 void		cleanup(t_push_swap *push_swap);
@@ -73,4 +85,12 @@ int			ft_abs(int n);
 
 void		cheapest_move_by_element(int pos_a, int pos_b,
 				t_push_swap *push_swap);
+
+// Stack sorting
+void		stack_a_to_stack_b(t_push_swap *push_swap);
+
+// debug
+
+void		print_stack(t_stack	*stack);
+
 #endif

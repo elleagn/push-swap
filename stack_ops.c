@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 13:39:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 11:53:56 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/29 14:41:27 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ t_stack	*stack_pop(t_stack	**stack)
 	}
 	(*stack)->previous->next = element->next;
 	(*stack)->next->previous = element->previous;
+	(*stack) = element->next;
 	element->next = element;
 	element->previous = element;
 	return (element);
@@ -70,10 +71,13 @@ void	stack_clear(t_stack **stack)
 	if (*stack == NULL)
 		return ;
 	element = (*stack)->next;
-	while (element != *stack)
+	if (element != element->next)
 	{
-		element = element->next;
-		free(element->previous);
+		while (element != *stack)
+		{
+			element = element->next;
+			free(element->previous);
+		}
 	}
 	free(element);
 	*stack = NULL;
