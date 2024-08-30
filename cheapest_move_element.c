@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 11:38:06 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 10:28:53 by gozon            ###   ########.fr       */
+/*   Updated: 2024/08/30 09:26:15 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	update_rr(int pos_a, int pos_b, t_push_swap *push_swap)
 {
 	t_move	*move;
 
+	ft_printf("case rr\n");
 	move = push_swap->next_move;
 	if (pos_a > pos_b)
 	{
@@ -40,6 +41,7 @@ void	update_rrr(int pos_a, int pos_b, t_push_swap *push_swap)
 	int		size_a;
 	int		size_b;
 
+	ft_printf("case rrr\n");
 	move = push_swap->next_move;
 	size_a = push_swap->size - push_swap->size_b;
 	size_b = push_swap->size_b;
@@ -63,6 +65,7 @@ void	update_rrr(int pos_a, int pos_b, t_push_swap *push_swap)
 
 void	update_r_rr(int pos_a, int pos_b, t_push_swap *push_swap)
 {
+	ft_printf("case r rr\n");
 	if (pos_a > push_swap->size - push_swap->size_b - pos_a)
 	{
 		push_swap->next_move->ra = 0;
@@ -76,7 +79,7 @@ void	update_r_rr(int pos_a, int pos_b, t_push_swap *push_swap)
 	if (pos_b > push_swap->size_b - pos_b)
 	{
 		push_swap->next_move->rb = 0;
-		push_swap->next_move->rrb = push_swap->size_b - pos_a;
+		push_swap->next_move->rrb = push_swap->size_b - pos_b;
 	}
 	else
 	{
