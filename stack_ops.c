@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 13:39:47 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 14:41:27 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/03 09:43:47 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ int	is_in_stack(int number, t_stack *stack)
 	element = stack->next;
 	while (element != stack)
 	{
-		if (stack->number == number)
+		if (element->number == number)
 			return (1);
 		element = element->next;
 	}

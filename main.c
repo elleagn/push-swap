@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 08:45:23 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/28 12:20:01 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/03 09:50:43 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,15 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	splitted = args_to_array(&argv[1]);
-	ft_printf("args to array ok\n");
 	if (!splitted)
 		return (ft_putstr_fd("Error\n", 2), 1);
 	push_swap = init();
-	ft_printf("init okay \n");
 	error = fill_stack_a(push_swap, splitted);
-	ft_printf("fill stack a ok\n");
 	free_array(splitted);
 	if (error)
 		return (cleanup(push_swap), ft_putstr_fd("Error\n", 2), 1);
-	print_stack(push_swap->stack_a);
+	if (push_swap->size > 1)
+		sort(push_swap);
 	cleanup(push_swap);
 	return (0);
 }

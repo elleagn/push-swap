@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 09:21:44 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/02 14:05:49 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/03 09:08:46 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,19 +40,13 @@ void	smaller_to_top(t_push_swap *push_swap)
 	}
 	if (pos < push_swap->size - pos)
 	{
-		while (pos)
-		{
+		while (pos--)
 			do_ra(push_swap);
-			pos--;
-		}
 	}
 	else
 	{
-		while (pos < push_swap->size)
-		{
+		while (pos++ < push_swap->size)
 			do_rra(push_swap);
-			pos++;
-		}
 	}
 }
 
@@ -69,15 +63,16 @@ void	sort(t_push_swap *push_swap)
 		{
 			top_a = push_swap->stack_a;
 			top_b = push_swap->stack_b->number;
-			while (!((top_a->previous->number < top_b && top_b < top_a->number)
+			if (!((top_a->previous->number < top_b && top_b < top_a->number)
 					|| (top_a->previous->number > top_a->number
 						&& (top_a->number > top_b
 							|| top_b > top_a->previous->number))))
 			{
-				do_ra(push_swap);
-				top_a = push_swap->stack_a;
+				find_cheapest_return_move(push_swap);
+				do_move(push_swap);
 			}
 			do_pa(push_swap);
+			push_swap->size_b -= 1;
 		}
 	}
 	smaller_to_top(push_swap);

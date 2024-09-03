@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 08:45:23 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/02 14:12:44 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/03 09:47:59 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,3 +89,26 @@ int	main(int argc, char **argv)
 	cleanup(push_swap);
 	return (0);
 }
+
+// int	main(int argc, char **argv)
+// {
+// 	char		**splitted;
+// 	t_push_swap	*push_swap;
+// 	int			error;
+
+// 	if (argc < 2)
+// 		return (0);
+// 	splitted = args_to_array(&argv[2]);
+// 	if (!splitted)
+// 		return (ft_putstr_fd("Error\n", 2), 1);
+// 	push_swap = init();
+// 	error = fill_stack_a(push_swap, splitted);
+// 	free_array(splitted);
+// 	if (error)
+// 		return (cleanup(push_swap), ft_putstr_fd("Error\n", 2), 1);
+// 	if (push_swap->size > 1)
+// 		ft_printf("%i\n", is_in_stack(ft_atoi(argv[1]), push_swap->stack_a));
+// //	print_stack(push_swap->stack_a);
+// 	cleanup(push_swap);
+// 	return (0);
+// }
