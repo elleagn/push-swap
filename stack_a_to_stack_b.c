@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cheapest_move_stack.c                              :+:      :+:    :+:   */
+/*   stack_a_to_stack_b.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/29 10:39:35 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/30 11:49:04 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/02 08:36:11 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	find_cheapest_move(t_push_swap	*push_swap)
 		&& push_swap->next_move->total > 1)
 	{
 		pos_b = target_pos(element->number, push_swap->stack_b);
-		ft_printf("number: %i, traget pos: %i size: %i size b: %i\n", element->number, pos_b, push_swap->size, push_swap->size_b);
+//		ft_printf("number: %i, traget pos: %i size: %i size b: %i\n", element->number, pos_b, push_swap->size, push_swap->size_b);
 		cheapest_move_by_element(pos_a, pos_b, push_swap);
 		element = element->next;
 		pos_a++;
@@ -88,8 +88,8 @@ void	stack_a_to_stack_b(t_push_swap *push_swap)
 			do_move(push_swap);
 		}
 		do_pb(push_swap);
-		print_stack(push_swap->stack_a);
-		print_stack(push_swap->stack_b);
+//		print_stack(push_swap->stack_a);
+//		print_stack(push_swap->stack_b);
 		push_swap->size_b += 1;
 	}
 }

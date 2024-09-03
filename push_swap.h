@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/07 10:58:46 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 14:36:07 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/02 11:35:04 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void		do_rra(t_push_swap *push_swap);
 void		do_rrb(t_push_swap *push_swap);
 void		do_rrr(t_push_swap *push_swap);
 void		do_move(t_push_swap *push_swap);
+void		do_sa(t_push_swap *push_swap);
 
 // Init and cleanup functions
 
@@ -88,6 +89,7 @@ void		cheapest_move_by_element(int pos_a, int pos_b,
 
 // Stack sorting
 void		stack_a_to_stack_b(t_push_swap *push_swap);
+void		sort(t_push_swap *push_swap);
 
 // debug
 

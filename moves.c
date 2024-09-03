@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/27 08:47:50 by gozon             #+#    #+#             */
-/*   Updated: 2024/08/29 13:01:10 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/02 10:00:39 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,27 @@ void	do_rrb(t_push_swap *push_swap)
 		push_swap->stack_b = push_swap->stack_b->previous;
 		ft_printf("rrb\n");
 	}
+}
+
+// Swap the first 2 elements at the top of stack a.
+// Only made to work with stacks of size 3.
+void	do_sa(t_push_swap *push_swap)
+{
+	t_stack	*top;
+	t_stack	*middle;
+	t_stack	*bottom;
+
+	top = push_swap->stack_a;
+	middle = push_swap->stack_a->next;
+	bottom = push_swap->stack_a->previous;
+	top->next = bottom;
+	top->previous = middle;
+	middle->next = top;
+	middle->previous = bottom;
+	bottom->next = middle;
+	bottom->previous = top;
+	push_swap->stack_a = middle;
+	ft_printf("sa\n");
 }
 
 // rra and rrb at the same time.

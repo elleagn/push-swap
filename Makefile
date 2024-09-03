@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/08/29 13:22:12 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/02 10:12:57 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,15 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
 SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c quick_sort.c \
-	stack_ops.c maths.c cheapest_move_element.c cheapest_move_stack.c moves.c \
-	moves_2.c test_init.c
+	stack_ops.c maths.c cheapest_move_element.c stack_a_to_stack_b.c moves.c \
+	moves_2.c sort.c test_init.c
 OBJ = $(SRC:.c=.o)
-
-# Séquences d'échappement ANSI pour les couleurs
-GREEN = \033[32m
-RED = \033[31m
-RESET = \033[0m
 
 # Symboles Unicode
 CHECK_MARK = ✔
 UNCHECKED_MARK = ✘
-COMP_SUCCESS = $(GREEN)$(CHECK_MARK)$(RESET)
-COMP_FAILURE = $(RED)$(UNCHECKED_MARK)$(RESET)
+COMP_SUCCESS = $(CHECK_MARK)
+COMP_FAILURE = $(UNCHECKED_MARK)
 
 all: $(NAME)
 
