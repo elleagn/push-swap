@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/03 09:55:05 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/03 10:15:25 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,10 +22,11 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
-SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c quick_sort.c \
+SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c \
 	stack_ops.c maths.c cheapest_move_element.c stack_a_to_stack_b.c moves.c \
 	moves_2.c sort.c cheapest_return_move.c main.c
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = objects
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 # Symboles Unicode
 CHECK_MARK = ✔
@@ -45,12 +46,15 @@ $(NAME): $(OBJ)
 	|| { echo "Erreur : Compilation de $(NAME) échouée ($(COMP_FAILURE))" ; exit 1; }
 	@echo "Compilation réussie ($(COMP_SUCCESS))"
 
-%.o: %.c
+$(OBJ_DIR)/%.o: %.c | $(OBJ_DIR)
 	@$(CC) $(CFLAGS) -c $< -o $@
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 
 clean:
 	$(ECHO)make clean -C Libft --silent --no-print-directory
-	$(ECHO)rm -f $(OBJ)
+	$(ECHO)rm -rf $(OBJ_DIR)
 	@echo "Nettoyage réussi ($(COMP_SUCCESS))"
 
 fclean: clean
