@@ -6,7 +6,7 @@
 #    By: gozon <gozon@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/28 08:35:14 by gozon             #+#    #+#              #
-#    Updated: 2024/09/03 10:15:25 by gozon            ###   ########.fr        #
+#    Updated: 2024/09/03 10:17:39 by gozon            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,9 +22,9 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 LIBFT = Libft/libft.a
-SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c \
-	stack_ops.c maths.c cheapest_move_element.c stack_a_to_stack_b.c moves.c \
-	moves_2.c sort.c cheapest_return_move.c main.c
+SRC = fill_stack_a.c init_cleanup.c args_to_array.c is_valid.c stack_ops.c \
+	maths.c cheapest_move_element.c stack_a_to_stack_b.c moves.c moves_2.c \
+	sort.c cheapest_return_move.c main.c
 OBJ_DIR = objects
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
