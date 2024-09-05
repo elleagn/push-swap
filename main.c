@@ -6,7 +6,7 @@
 /*   By: gozon <gozon@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 08:45:23 by gozon             #+#    #+#             */
-/*   Updated: 2024/09/03 09:50:43 by gozon            ###   ########.fr       */
+/*   Updated: 2024/09/05 13:37:51 by gozon            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,22 @@ void	free_array(char **array)
 		i++;
 	}
 	free(array);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_stack	*element;
+
+	if (!stack)
+		return (1);
+	element = stack;
+	while (element->next != stack)
+	{
+		if (element->number > element->next->number)
+			return (0);
+		element = element->next;
+	}
+	return (1);
 }
 
 // Takes as an argument the stack a formatted as a list of integers. The first
@@ -53,7 +69,7 @@ int	main(int argc, char **argv)
 	free_array(splitted);
 	if (error)
 		return (cleanup(push_swap), ft_putstr_fd("Error\n", 2), 1);
-	if (push_swap->size > 1)
+	if (push_swap->size > 1 && !is_sorted(push_swap->stack_a))
 		sort(push_swap);
 	cleanup(push_swap);
 	return (0);
